@@ -16,12 +16,11 @@ userService.read = (email) =>{
 }
 
 //UPDATE
-// userService.update = (email) =>{
-//   return db.none('UPDATE users SET token = ${token} WHERE email=${email}',{
-//     email,
-//     
-//   })
-// }
+userService.update = (uuid,email, area_code, phone_number, token) =>{
+  return db.none('UPDATE users SET email = ${email}, area_code = ${area_code}, phone_number = ${phone_number}, token = ${token} WHERE uuid=${uuid}',{
+    uuid,email, area_code, phone_number, token
+  })
+}
 
 // DELETE
 userService.delete = (uuid) =>{

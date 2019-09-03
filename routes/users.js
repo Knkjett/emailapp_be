@@ -33,10 +33,19 @@ userRouter.get('/:email', (req, res) => {
 });
 
 // PUT - UPDATE
-// userRouter.put('/:email',(req,res)=>{
-//   const {email} = req.params;
-//   // {BODY} = req.body
-// })
+userRouter.put('/:uuid', (req, res) => {
+  const {uuid} = req.params
+  const {email, area_code, phone_number, token} = req.body;
+  UserService.update(uuid, email, area_code, phone_number, token)
+    .then(data => {
+      res.status(201);
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(400);
+      res.send({"Message":err})
+    })
+});
 
 // DELETE - DELETE
 userRouter.delete('/:uuid',(req,res)=>{
