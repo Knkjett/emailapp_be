@@ -14,8 +14,8 @@ CREATE TABLE users (
 
 CREATE TABLE history(
   uuid TEXT NOT NULL,
-  sender VARCHAR NOT NULL,
-  reciever VARCHAR NOT NULL,
+  sender TEXT REFERENCES users(uuid),
+  reciever TEXT REFERENCES users(uuid),
   content TEXT DEFAULT NULL,
   createdAt TIMESTAMP DEFAULT NOW(),
   PRIMARY KEY (uuid)

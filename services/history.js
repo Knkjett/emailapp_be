@@ -8,9 +8,16 @@ historyService.create = (uuid, sender, reciever, content) =>{
   });
 }
 
-// READ
-historyService.read = (uuid) =>{
-  return db.one ('SELECT * from history WHERE uuid=${uuid}',{
+// READ SENT MESSAGES
+historyService.readSent = (uuid) =>{
+  return db.any ('SELECT * from history WHERE sender=${uuid}',{
+    uuid
+  });
+}
+
+// READ RECIEVED MESSAGES
+historyService.readRecieve = (uuid) =>{
+  return db.any ('SELECT * from history WHERE reciever=${uuid}',{
     uuid
   });
 }

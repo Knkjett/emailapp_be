@@ -19,9 +19,9 @@ contact_listRouter.post('/', (req, res) => {
 });
 
 // GET - READ ALL CONTACT FROM HOST
-contact_listRouter.getContacts('/:uuid', (req, res) => {
+contact_listRouter.get('/:uuid', (req, res) => {
   const {uuid} = req.params;
-  Contact_ListService.read(uuid)
+  Contact_ListService.getContacts(uuid)
     .then(data => {
       res.status(200);
       res.send(data);

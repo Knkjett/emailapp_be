@@ -10,7 +10,11 @@ app.use(cors());
   
 // ROUTERS
 const userRouter = require('./routes/users');
+const historyRouter = require('./routes/history');
+const contact_listRouter = require('./routes/contact_list');
 
 app.use('/users', userRouter);
+app.use('/history', historyRouter);
+app.use('/contact_list', contact_listRouter);
 
 module.exports = {app}

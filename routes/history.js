@@ -10,7 +10,10 @@ historyRouter.post('/', (req, res) => {
   HistoryService.create(uuid, sender, reciever, content)
     .then(data => {
       res.status(201);
-      res.send(`Email sent to ${data}`);
+      res.send({
+        "Message": `Email sent.`, 
+        "data": data
+        });
     })
     .catch(err => {
       res.status(400);
@@ -19,9 +22,9 @@ historyRouter.post('/', (req, res) => {
 });
 
 // GET - READ 
-historyRouter.get('/:uuid', (req, res) => {
+historyRouter.get('/sent/:uuid', (req, res) => {
   const {uuid} = req.params;
-  HistoryService.read(uuid)
+  HistoryService.readSent(uuid)
     .then(data => {
       res.status(200);
       res.send(data);
@@ -32,5 +35,17 @@ historyRouter.get('/:uuid', (req, res) => {
     })
 });
 
+historyRouter.get('/recieved/:uuid', (req, res) => {
+  const {uuid} = req.params;
+  HistoryService.readRecieve(uuid)
+    .then(data => {
+      res.status(200);
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(400);
+      res.send({"Message":err})
+    })
+});
 
 module.exports = historyRouter;
