@@ -23,11 +23,11 @@ test('User POST Request', done => {
 
 test('User GET Request', done => {
   db.one.mockImplementation((...rest) => Promise.resolve())
-  userService.read('test@email.com')
+  userService.read('sptoken')
     .then(() => {
-      expect(db.one.mock.calls[1][0]).toBe('SELECT * from users WHERE email=${email}');
+      expect(db.one.mock.calls[1][0]).toBe('SELECT * from users WHERE token=${token}');
       expect(db.one.mock.calls[1][1]).toEqual({
-        'email':'test@email.com'
+        'token':'sptoken'
       });
       done()
     })
@@ -72,7 +72,7 @@ test('connecting to User POST',done => {
 })
 test('connecting to User GET',done => {
   request(app)
-  .get('/users/test@gmail.com')
+  .get('/users/sptoken')
   .then((res)=>{
     expect(res.status).toBe(200);
     done();

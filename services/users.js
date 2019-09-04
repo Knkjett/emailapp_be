@@ -9,9 +9,9 @@ userService.create = (uuid,email, area_code, phone_number, token) =>{
 }
 
 // READ
-userService.read = (email) =>{
-  return db.one ('SELECT * from users WHERE email=${email}',{
-    email
+userService.read = (token) =>{
+  return db.one ('SELECT * from users WHERE token=${token}',{
+    token
   });
 }
 

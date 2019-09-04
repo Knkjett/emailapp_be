@@ -19,9 +19,9 @@ userRouter.post('/', (req, res) => {
 });
 
 // GET - READ 
-userRouter.get('/:email', (req, res) => {
-  const {email} = req.params;
-  UserService.read(email)
+userRouter.get('/:token', (req, res) => {
+  const {token} = req.params;
+  UserService.read(token)
     .then(data => {
       res.status(200);
       res.send(data);
