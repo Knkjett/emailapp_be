@@ -20,91 +20,115 @@ test('User POST Request', done => {
       done()
     })
 })
-// test('User GET Request', done => {
-//   db.one.mockImplementation((...rest) => Promise.resolve())
-//   userService.read(1)
-//     .then(() => {
-//       expect(db.one.mock.calls[0][0]).toBe('SELECT id from users WHERE email=${email}');
-//       done()
-//     })
-// })
-// test('User UPDATE Request', done => {
-//   db.none.mockImplementation((...rest) => Promise.resolve())
-//   userService.update(1, 'notatest@email.com', 'notsp')
-//     .then(() => {
-//       expect(db.none.mock.calls[1][0]).toBe('UPDATE users SET email = ${email}, token = ${token} WHERE id=${id}')
-//       expect(db.none.mock.calls[1][1]).toEqual({
-//         'id': 1,
-//         'email': 'notatest@email.com',
-//         'token': 'notsp'
-//       });
-//       done()
-//     })
-// })
-// // test('User DELETE Request', done => {
-// //   db.none.mockImplementation((...rest) => Promise.resolve())
-// //   userService.delete(1)
-// //     .then(() => {
-// //       expect(db.none.mock.calls[2][0]).toBe('DELETE FROM users WHERE id=${id}')
-// //       expect(db.none.mock.calls[2][1]).toEqual({
-// //         'id': 1
-// //       });
-// //       done()
-// //     })
-// // })
 
-// //===CONNECTION TEST===
-// const request = require('supertest');
-// const {app} = require('../app');
-// test('connecting to User POST',done => {
-//   request(app)
-//   .post('/user/')
-//   .then((res)=>{
-//     expect(res.status).toBe(201);
-//     done();
-//   })
-// })
-// test('connecting to User GET',done => {
-//   request(app)
-//   .get('/user/1')
-//   .then((res)=>{
-//     expect(res.status).toBe(200);
-//     done();
-//   })
-// })
-// test('connecting to User PUT',done => {
-//   request(app)
-//   .put('/user/1')
-//   .then((res)=>{
-//     expect(res.status).toBe(201);
-//     done();
-//   })
-// })
+test('User GET Request', done => {
+  db.one.mockImplementation((...rest) => Promise.resolve())
+  userService.read('test@email.com')
+    .then(() => {
+      expect(db.one.mock.calls[1][0]).toBe('SELECT * from users WHERE email=${email}');
+      expect(db.one.mock.calls[1][1]).toEqual({
+        'email':'test@email.com'
+      });
+      done()
+    })
+})
+test('User UPDATE Request', done => {
+  db.none.mockImplementation((...rest) => Promise.resolve())
+  userService.update('myuuid-123-456', 'notaemail@email.com',null,null, 'notsp')
+    .then(() => {
+      expect(db.none.mock.calls[0][0]).toBe('UPDATE users SET email = ${email}, area_code = ${area_code}, phone_number = ${phone_number}, token = ${token} WHERE uuid=${uuid}')
+      expect(db.none.mock.calls[0][1]).toEqual({
+        'uuid': 'myuuid-123-456',
+        'email': 'notaemail@email.com',
+        'area_code':null,
+        'phone_number':null,
+        'token': 'notsp'
+      });
+      done()
+    })
+})
+test('User DELETE Request', done => {
+  db.none.mockImplementation((...rest) => Promise.resolve())
+  userService.delete('uuid-333')
+    .then(() => {
+      expect(db.none.mock.calls[1][0]).toBe('DELETE FROM users WHERE uuid=${uuid}')
+      expect(db.none.mock.calls[1][1]).toEqual({
+        'uuid': 'uuid-333'
+      });
+      done()
+    })
+})
+
+// //===CONNECTION ROUTE TEST===
+const request = require('supertest');
+const {app} = require('../app');
+test('connecting to User POST',done => {
+  request(app)
+  .post('/users/')
+  .then((res)=>{
+    expect(res.status).toBe(201);
+    done();
+  })
+})
+test('connecting to User GET',done => {
+  request(app)
+  .get('/users/test@gmail.com')
+  .then((res)=>{
+    expect(res.status).toBe(200);
+    done();
+  })
+})
+test('connecting to User PUT',done => {
+  request(app)
+  .put('/users/myuuid-123-456')
+  .then((res)=>{
+    expect(res.status).toBe(201);
+    done();
+  })
+})
+test('connecting to User DELETE',done => {
+  request(app)
+  .delete('/users/myuuid-333')
+  .then((res)=>{
+    expect(res.status).toBe(201);
+    done();
+  })
+})
+
 // //===REJECT===
-// test('connecting to User POST Request', done => {
-//   db.none.mockImplementation((...rest) => Promise.reject())
-//   request(app)
-//   .post('/user/')
-//     .then((res) => {
-//       expect(res.status).toBe(400);
-//     done();
-//     })
-// })
-// test('connecting to User GET Request', done => {
-//   db.one.mockImplementation((...rest) => Promise.reject())
-//   request(app)
-//   .get('/user/1')
-//     .then((res) => {
-//       expect(res.status).toBe(400);
-//     done();
-//     })
-// })
-// test('connecting to User PUT Request', done => {
-//   db.none.mockImplementation((...rest) => Promise.reject())
-//   request(app)
-//   .put('/user/1')
-//     .then((res) => {
-//       expect(res.status).toBe(400);
-//     done();
-//     })
-// })
+test('connecting to User POST Request', done => {
+  db.one.mockImplementation((...rest) => Promise.reject())
+  request(app)
+  .post('/users/')
+    .then((res) => {
+      expect(res.status).toBe(400);
+    done();
+    })
+})
+test('connecting to User GET Request', done => {
+  db.one.mockImplementation((...rest) => Promise.reject())
+  request(app)
+  .get('/users/test@gmail.com')
+    .then((res) => {
+      expect(res.status).toBe(400);
+    done();
+    })
+})
+test('connecting to User PUT Request', done => {
+  db.none.mockImplementation((...rest) => Promise.reject())
+  request(app)
+  .put('/users/myuuid-123-456')
+    .then((res) => {
+      expect(res.status).toBe(400);
+    done();
+    })
+})
+test('connecting to User DELETE Request', done => {
+  db.none.mockImplementation((...rest) => Promise.reject())
+  request(app)
+  .delete('/users/myuuid-123-456')
+    .then((res) => {
+      expect(res.status).toBe(400);
+    done();
+    })
+})

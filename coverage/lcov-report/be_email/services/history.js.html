@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/9</span>
+        <span class='fraction'>6/9</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,16 +35,16 @@
         <span class='fraction'>0/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/9</span>
+        <span class='fraction'>6/9</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -70,61 +70,61 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const {db} = <span class="cstat-no" title="statement not covered" >require('./dbConnect');</span>
-const historyService = <span class="cstat-no" title="statement not covered" >{};</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const {db} = require('./dbConnect');
+const historyService = {};
 &nbsp;
 // CREATE
-<span class="cstat-no" title="statement not covered" >historyService.create = <span class="fstat-no" title="function not covered" >(u</span>uid, sender, reciever, content) =&gt;{</span>
+historyService.create = <span class="fstat-no" title="function not covered" >(u</span>uid, sender, reciever, content) =&gt;{
 <span class="cstat-no" title="statement not covered" >  return db.one('INSERT INTO history (uuid, sender, reciever, content) VALUES (${uuid}, ${sender}, ${reciever}, ${content}) RETURNING reciever;',{</span>
     uuid, sender, reciever, content
   });
 }
 &nbsp;
 // READ SENT MESSAGES
-<span class="cstat-no" title="statement not covered" >historyService.readSent = <span class="fstat-no" title="function not covered" >(u</span>uid) =&gt;{</span>
+historyService.readSent = <span class="fstat-no" title="function not covered" >(u</span>uid) =&gt;{
 <span class="cstat-no" title="statement not covered" >  return db.any ('SELECT * from history WHERE sender=${uuid}',{</span>
     uuid
   });
 }
 &nbsp;
 // READ RECIEVED MESSAGES
-<span class="cstat-no" title="statement not covered" >historyService.readRecieve = <span class="fstat-no" title="function not covered" >(u</span>uid) =&gt;{</span>
+historyService.readRecieve = <span class="fstat-no" title="function not covered" >(u</span>uid) =&gt;{
 <span class="cstat-no" title="statement not covered" >  return db.any ('SELECT * from history WHERE reciever=${uuid}',{</span>
     uuid
   });
 }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >module.exports = historyService;</span></pre></td></tr>
+module.exports = historyService;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 03 2019 21:20:14 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 03 2019 21:31:55 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

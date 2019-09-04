@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">29.63% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/27</span>
+        <span class='fraction'>8/27</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>0/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">29.63% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/27</span>
+        <span class='fraction'>8/27</span>
       </div>
     </div>
     <p class="quiet">
@@ -97,30 +97,13 @@
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -129,12 +112,16 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -147,14 +134,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const express = <span class="cstat-no" title="statement not covered" >require('express');</span>
-const historyRouter = <span class="cstat-no" title="statement not covered" >express.Router();</span>
-const HistoryService = <span class="cstat-no" title="statement not covered" >require('../services/history');</span>
-const uuidv1 = <span class="cstat-no" title="statement not covered" >require('uuid/v1');</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const express = require('express');
+const historyRouter = express.Router();
+const HistoryService = require('../services/history');
+const uuidv1 = require('uuid/v1');
 &nbsp;
 // POST - CREATE 
-<span class="cstat-no" title="statement not covered" >historyRouter.post('/', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {</span>
+historyRouter.post('/', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
   const {sender, reciever, content} = <span class="cstat-no" title="statement not covered" >req.body;</span>
   let uuid = <span class="cstat-no" title="statement not covered" >uuidv1();</span>
 <span class="cstat-no" title="statement not covered" >  HistoryService.create(uuid, sender, reciever, content)</span>
@@ -172,7 +172,7 @@ const uuidv1 = <span class="cstat-no" title="statement not covered" >require('uu
 });
 &nbsp;
 // GET - READ 
-<span class="cstat-no" title="statement not covered" >historyRouter.get('/sent/:uuid', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {</span>
+historyRouter.get('/sent/:uuid', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
   const {uuid} = <span class="cstat-no" title="statement not covered" >req.params;</span>
 <span class="cstat-no" title="statement not covered" >  HistoryService.readSent(uuid)</span>
     .then(<span class="fstat-no" title="function not covered" >da</span>ta =&gt; {
@@ -185,7 +185,7 @@ const uuidv1 = <span class="cstat-no" title="statement not covered" >require('uu
     })
 });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >historyRouter.get('/recieved/:uuid', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {</span>
+historyRouter.get('/recieved/:uuid', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
   const {uuid} = <span class="cstat-no" title="statement not covered" >req.params;</span>
 <span class="cstat-no" title="statement not covered" >  HistoryService.readRecieve(uuid)</span>
     .then(<span class="fstat-no" title="function not covered" >da</span>ta =&gt; {
@@ -198,14 +198,14 @@ const uuidv1 = <span class="cstat-no" title="statement not covered" >require('uu
     })
 });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >module.exports = historyRouter;</span>
+module.exports = historyRouter;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 03 2019 21:20:14 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 03 2019 21:31:55 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../../prettify.js"></script>
