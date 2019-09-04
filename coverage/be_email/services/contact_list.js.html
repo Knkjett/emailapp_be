@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">63.64% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>7/11</span>
+        <span class='fraction'>11/11</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">63.64% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>7/11</span>
+        <span class='fraction'>11/11</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -77,64 +77,64 @@
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span></td><td class="text"><pre class="prettyprint lang-js">const {db} = require('./dbConnect');
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span></td><td class="text"><pre class="prettyprint lang-js">const {db} = require('./dbConnect');
 const contact_listService = {};
 &nbsp;
 // CREATE
-contact_listService.create = <span class="fstat-no" title="function not covered" >(u</span>uid, host, contact, category) =&gt;{
-<span class="cstat-no" title="statement not covered" >  return db.one('INSERT INTO contact_list (uuid, host, contact, category) VALUES (${uuid}, ${host}, ${contact}, ${category}) RETURNING host, contact, category;',{</span>
+contact_listService.create = (uuid, host, contact, category) =&gt;{
+  return db.one('INSERT INTO contact_list (uuid, host, contact, category) VALUES (${uuid}, ${host}, ${contact}, ${category}) RETURNING host, contact, category;',{
     uuid, host, contact, category
   });
 }
 &nbsp;
 // READ ALL CONTACTS FROM HOST
-contact_listService.getContacts = <span class="fstat-no" title="function not covered" >(u</span>uid) =&gt;{
-<span class="cstat-no" title="statement not covered" >  return db.any ('SELECT * from contact_list WHERE host=${uuid}',{</span>
+contact_listService.getContacts = (uuid) =&gt;{
+  return db.any ('SELECT * from contact_list WHERE host=${uuid}',{
     uuid
   });
 }
 &nbsp;
 // UPDATE CATEGORY
-contact_listService.update = <span class="fstat-no" title="function not covered" >(u</span>uid, category) =&gt;{
-<span class="cstat-no" title="statement not covered" >  return db.none('UPDATE contact_list SET category = ${category} WHERE uuid=${uuid}',{</span>
+contact_listService.update = (uuid, category) =&gt;{
+  return db.none('UPDATE contact_list SET category = ${category} WHERE uuid=${uuid}',{
     uuid, category
   });
 }
 &nbsp;
 // DELETE
-contact_listService.delete = <span class="fstat-no" title="function not covered" >(u</span>uid) =&gt;{
-<span class="cstat-no" title="statement not covered" >  return db.none ('DELETE FROM contact_list WHERE uuid=${uuid}',{</span>
+contact_listService.delete = (uuid) =&gt;{
+  return db.none ('DELETE FROM contact_list WHERE uuid=${uuid}',{
     uuid
   })
 }
@@ -145,7 +145,7 @@ module.exports = contact_listService;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 03 2019 21:41:42 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 03 2019 22:08:39 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

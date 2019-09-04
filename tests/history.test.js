@@ -5,7 +5,7 @@ const {
 } = require('../services/dbConnect')
 const historyService = require('../services/history')
 
-test('User POST Request', done => {
+test('History POST Request', done => {
   db.one.mockImplementation((...rest) => Promise.resolve())
   historyService.create('myuuid-123-456','sender@email.com','reciever@email.com','content_id')
     .then(() => {
@@ -20,7 +20,7 @@ test('User POST Request', done => {
     })
 })
 
-test('User GET SENT Request', done => {
+test('History GET SENT Request', done => {
   db.any.mockImplementation((...rest) => Promise.resolve())
   historyService.readSent('sender@email.com')
     .then(() => {
@@ -32,7 +32,7 @@ test('User GET SENT Request', done => {
     })
 })
 
-test('User GET RECIEVER Request', done => {
+test('History GET RECIEVER Request', done => {
   db.any.mockImplementation((...rest) => Promise.resolve())
   historyService.readRecieve('reciever@email.com')
     .then(() => {
@@ -47,7 +47,7 @@ test('User GET RECIEVER Request', done => {
 // // //===CONNECTION ROUTE TEST===
 const request = require('supertest');
 const {app} = require('../app');
-test('connecting to User POST',done => {
+test('connecting to History POST',done => {
   request(app)
   .post('/history/')
   .then((res)=>{
@@ -55,7 +55,7 @@ test('connecting to User POST',done => {
     done();
   })
 })
-test('connecting to User GET Sent',done => {
+test('connecting to History GET Sent',done => {
   request(app)
   .get('/history/sent/myuuid-123-456')
   .then((res)=>{
@@ -63,7 +63,7 @@ test('connecting to User GET Sent',done => {
     done();
   })
 })
-test('connecting to User GET Reciever',done => {
+test('connecting to History GET Reciever',done => {
   request(app)
   .get('/history/recieved/myuuid-123-456')
   .then((res)=>{
@@ -74,7 +74,7 @@ test('connecting to User GET Reciever',done => {
 
 
 // // //===REJECT===
-test('connecting to User POST Request', done => {
+test('connecting to History POST Request', done => {
   db.one.mockImplementation((...rest) => Promise.reject())
   request(app)
   .post('/history/')
@@ -83,7 +83,7 @@ test('connecting to User POST Request', done => {
     done();
     })
 })
-test('connecting to User GET Sent Request', done => {
+test('connecting to History GET Sent Request', done => {
   db.any.mockImplementation((...rest) => Promise.reject())
   request(app)
   .get('/history/sent/uuid-123-456')
@@ -92,7 +92,7 @@ test('connecting to User GET Sent Request', done => {
     done();
     })
 })
-test('connecting to User GET Recieved Request', done => {
+test('connecting to History GET Recieved Request', done => {
   db.any.mockImplementation((...rest) => Promise.reject())
   request(app)
   .get('/history/recieved/uuid-123-456')

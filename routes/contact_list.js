@@ -17,7 +17,6 @@ contact_listRouter.post('/', (req, res) => {
     })
     .catch(err => {
       res.status(400);
-      console.log(err)
       res.send({"Message":err})
     })
 });
@@ -38,6 +37,7 @@ contact_listRouter.get('/:uuid', (req, res) => {
 
 // PUT - UPDATE CATEGORY
 contact_listRouter.put('/:uuid', (req, res) => {
+  const {uuid} = req.params;
   const {category} = req.body;
   Contact_ListService.update(uuid, category)
     .then(() => {
