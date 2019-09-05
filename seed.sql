@@ -23,8 +23,8 @@ CREATE TABLE history(
 
 CREATE TABLE contact_list(
   uuid TEXT NOT NULL,
-  host TEXT REFERENCES users(uuid),
-  contact TEXT REFERENCES users(uuid),
+  host TEXT REFERENCES users(uuid) NOT NULL,
+  contact TEXT REFERENCES users(uuid) NOT NULL,
   category TEXT DEFAULT NULL,
   PRIMARY KEY (uuid)
 );
