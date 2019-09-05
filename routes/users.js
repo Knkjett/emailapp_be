@@ -32,6 +32,20 @@ userRouter.get('/:token', (req, res) => {
     })
 });
 
+// GET - READ BY UUID
+userRouter.get('/contact/:uuid', (req, res) => {
+  const {uuid} = req.params;
+  UserService.readUUID(uuid)
+    .then(data => {
+      res.status(200);
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(400);
+      res.send({"Message":err})
+    })
+});
+
 // PUT - UPDATE
 userRouter.put('/:uuid', (req, res) => {
   const {uuid} = req.params

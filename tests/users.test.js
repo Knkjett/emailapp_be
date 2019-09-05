@@ -32,6 +32,19 @@ test('User GET Request', done => {
       done()
     })
 })
+
+test('User GET Request', done => {
+  db.one.mockImplementation((...rest) => Promise.resolve())
+  userService.readUUID('uuid-123-456')
+    .then(() => {
+      expect(db.one.mock.calls[2][0]).toBe('SELECT * from users WHERE uuid=${uuid}');
+      expect(db.one.mock.calls[2][1]).toEqual({
+        'uuid':'uuid-123-456'
+      });
+      done()
+    })
+})
+
 test('User UPDATE Request', done => {
   db.none.mockImplementation((...rest) => Promise.resolve())
   userService.update('myuuid-123-456', 'notaemail@email.com',null,null, 'notsp')
@@ -70,6 +83,7 @@ test('connecting to User POST',done => {
     done();
   })
 })
+
 test('connecting to User GET',done => {
   request(app)
   .get('/users/sptoken')
@@ -78,6 +92,16 @@ test('connecting to User GET',done => {
     done();
   })
 })
+
+test('connecting to User GET UUID',done => {
+  request(app)
+  .get('/users/contact/uuid-123-456')
+  .then((res)=>{
+    expect(res.status).toBe(200);
+    done();
+  })
+})
+
 test('connecting to User PUT',done => {
   request(app)
   .put('/users/myuuid-123-456')
@@ -86,6 +110,7 @@ test('connecting to User PUT',done => {
     done();
   })
 })
+
 test('connecting to User DELETE',done => {
   request(app)
   .delete('/users/myuuid-333')
@@ -105,15 +130,27 @@ test('connecting to User POST Request', done => {
     done();
     })
 })
+
 test('connecting to User GET Request', done => {
   db.one.mockImplementation((...rest) => Promise.reject())
   request(app)
-  .get('/users/test@gmail.com')
+  .get('/users/sptoken')
     .then((res) => {
       expect(res.status).toBe(400);
     done();
     })
 })
+
+test('connecting to User GET BY UUID Request', done => {
+  db.one.mockImplementation((...rest) => Promise.reject())
+  request(app)
+  .get('/users/contact/uuid-123-456')
+    .then((res) => {
+      expect(res.status).toBe(400);
+    done();
+    })
+})
+
 test('connecting to User PUT Request', done => {
   db.none.mockImplementation((...rest) => Promise.reject())
   request(app)
@@ -123,6 +160,7 @@ test('connecting to User PUT Request', done => {
     done();
     })
 })
+
 test('connecting to User DELETE Request', done => {
   db.none.mockImplementation((...rest) => Promise.reject())
   request(app)

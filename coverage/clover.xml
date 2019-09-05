@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1567569608057" clover="3.2.0">
-  <project timestamp="1567569608057" name="All files">
-    <metrics statements="145" coveredstatements="145" conditionals="2" coveredconditionals="2" methods="44" coveredmethods="44" elements="191" coveredelements="191" complexity="0" loc="145" ncloc="145" packages="3" files="8" classes="8"/>
+<coverage generated="1567674584109" clover="3.2.0">
+  <project timestamp="1567674584110" name="All files">
+    <metrics statements="155" coveredstatements="155" conditionals="2" coveredconditionals="2" methods="48" coveredmethods="48" elements="205" coveredelements="205" complexity="0" loc="155" ncloc="155" packages="3" files="8" classes="8"/>
     <package name="be_email">
       <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.js" path="/home/kevin/Desktop/Pursuit/Kjett/email/be_email/app.js">
@@ -23,7 +23,7 @@
       </file>
     </package>
     <package name="be_email.routes">
-      <metrics statements="97" coveredstatements="97" conditionals="0" coveredconditionals="0" methods="33" coveredmethods="33"/>
+      <metrics statements="105" coveredstatements="105" conditionals="0" coveredconditionals="0" methods="36" coveredmethods="36"/>
       <file name="contact_list.js" path="/home/kevin/Desktop/Pursuit/Kjett/email/be_email/routes/contact_list.js">
         <metrics statements="35" coveredstatements="35" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="12"/>
         <line num="1" count="3" type="stmt"/>
@@ -93,7 +93,7 @@
         <line num="51" count="3" type="stmt"/>
       </file>
       <file name="users.js" path="/home/kevin/Desktop/Pursuit/Kjett/email/be_email/routes/users.js">
-        <metrics statements="35" coveredstatements="35" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="12"/>
+        <metrics statements="43" coveredstatements="43" conditionals="0" coveredconditionals="0" methods="15" coveredmethods="15"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
@@ -116,23 +116,31 @@
         <line num="36" count="3" type="stmt"/>
         <line num="37" count="2" type="stmt"/>
         <line num="38" count="2" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
         <line num="45" count="1" type="stmt"/>
         <line num="46" count="1" type="stmt"/>
         <line num="51" count="3" type="stmt"/>
         <line num="52" count="2" type="stmt"/>
         <line num="53" count="2" type="stmt"/>
-        <line num="55" count="1" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
         <line num="56" count="1" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
         <line num="60" count="1" type="stmt"/>
-        <line num="64" count="3" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="66" count="3" type="stmt"/>
+        <line num="67" count="2" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="75" count="1" type="stmt"/>
+        <line num="79" count="3" type="stmt"/>
       </file>
     </package>
     <package name="be_email.services">
-      <metrics statements="34" coveredstatements="34" conditionals="2" coveredconditionals="2" methods="11" coveredmethods="11"/>
+      <metrics statements="36" coveredstatements="36" conditionals="2" coveredconditionals="2" methods="12" coveredmethods="12"/>
       <file name="contact_list.js" path="/home/kevin/Desktop/Pursuit/Kjett/email/be_email/services/contact_list.js">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="1" count="3" type="stmt"/>
@@ -166,7 +174,7 @@
         <line num="25" count="3" type="stmt"/>
       </file>
       <file name="users.js" path="/home/kevin/Desktop/Pursuit/Kjett/email/be_email/services/users.js">
-        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
@@ -177,7 +185,9 @@
         <line num="20" count="3" type="stmt"/>
         <line num="26" count="3" type="stmt"/>
         <line num="27" count="3" type="stmt"/>
-        <line num="32" count="3" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="34" count="3" type="stmt"/>
+        <line num="39" count="3" type="stmt"/>
       </file>
     </package>
   </project>
