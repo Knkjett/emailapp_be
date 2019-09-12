@@ -1,6 +1,8 @@
 const express = require('express');
 const sendgridRouter = express.Router();
+require('dotenv').config()
 const sgMail = require('@sendgrid/mail');
+
 
 sendgridRouter.get('/', (req, res) => {
   const {sender, reciever} = req.body;
@@ -12,8 +14,15 @@ sendgridRouter.get('/', (req, res) => {
     text: 'and easy to do anywhere, even with Node.js',
     html: '<strong>and easy to do anywhere, even with Node.js</strong>',
   };
-  sgMail.send(msg);
-  res.status(200)
+  sgMail.send(msg)
+  .then((data)=>{
+    res.status(200)
+    res.json({msg:"Sent mail", data})
+  })
+  .catch((err)=>{
+    res.status(400)
+    res.json({error: err})
+  })
 });
 
 
