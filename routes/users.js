@@ -49,8 +49,8 @@ userRouter.get('/contact/:uuid', (req, res) => {
 // PUT - UPDATE
 userRouter.put('/:uuid', (req, res) => {
   const {uuid} = req.params
-  const {email, area_code, phone_number, token} = req.body;
-  UserService.update(uuid, email, area_code, phone_number, token)
+  const {email, area_code, phone_number} = req.body;
+  UserService.update(uuid, email, area_code, phone_number)
     .then(data => {
       res.status(201);
       res.send(data);

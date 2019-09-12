@@ -12,9 +12,11 @@ app.use(cors());
 const userRouter = require('./routes/users');
 const historyRouter = require('./routes/history');
 const contact_listRouter = require('./routes/contact_list');
+const sendgridRouter = require('./routes/sendgrid')
 
 app.use('/users', userRouter);
 app.use('/history', historyRouter);
 app.use('/contact_list', contact_listRouter);
+app.use('/sendgrid', sendgridRouter)
 
 module.exports = {app}

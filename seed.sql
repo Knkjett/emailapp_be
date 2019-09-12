@@ -25,6 +25,7 @@ CREATE TABLE contact_list(
   uuid TEXT NOT NULL,
   host TEXT REFERENCES users(uuid) NOT NULL,
   contact TEXT REFERENCES users(uuid) NOT NULL,
+//**  nickname TEXT DEFAULT NULL,**//
   category TEXT DEFAULT NULL,
   PRIMARY KEY (uuid)
 );
