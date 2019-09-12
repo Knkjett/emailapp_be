@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for be_email/services/history.js</title>
+    <title>Code coverage report for be_email/routes/sendgrid.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">All files</a> / <a href="index.html">be_email/services</a> history.js
+      <a href="../../index.html">All files</a> / <a href="index.html">be_email/routes</a> sendgrid.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/9</span>
+        <span class='fraction'>12/14</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>2/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/9</span>
+        <span class='fraction'>12/14</span>
       </div>
     </div>
     <p class="quiet">
@@ -70,55 +70,73 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span></td><td class="text"><pre class="prettyprint lang-js">const {db} = require('./dbConnect');
-const historyService = {};
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const express = require('express');
+const sendgridRouter = express.Router();
+require('dotenv').config()
+const sgMail = require('@sendgrid/mail');
 &nbsp;
-// CREATE
-historyService.create = (uuid, sender, reciever, content) =&gt;{
-  return db.one('INSERT INTO history (uuid, sender, reciever, content) VALUES (${uuid}, ${sender}, ${reciever}, ${content}) RETURNING reciever;',{
-    uuid, sender, reciever, content
-  });
-}
 &nbsp;
-// READ SENT MESSAGES
-historyService.readSent = (uuid) =&gt;{
-  return db.any ('SELECT * from history WHERE sender=${uuid}',{
-    uuid
-  });
-}
+sendgridRouter.get('/', (req, res) =&gt; {
+  const {sender, reciever} = req.body;
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  const msg = {
+    to: reciever,
+    from: sender,
+    subject: 'Sending with Twilio SendGrid is Fun',
+    text: 'and easy to do anywhere, even with Node.js',
+    html: '&lt;strong&gt;and easy to do anywhere, even with Node.js&lt;/strong&gt;',
+  };
+  sgMail.send(msg)
+  .then(<span class="fstat-no" title="function not covered" >(d</span>ata)=&gt;{
+<span class="cstat-no" title="statement not covered" >    res.status(200)</span>
+<span class="cstat-no" title="statement not covered" >    res.json({msg:"Sent mail", data})</span>
+  })
+  .catch((err)=&gt;{
+    res.status(400)
+    res.json({error: err})
+  })
+});
 &nbsp;
-// READ RECIEVED MESSAGES
-historyService.readRecieve = (uuid) =&gt;{
-  return db.any ('SELECT * from history WHERE reciever=${uuid}',{
-    uuid
-  });
-}
 &nbsp;
-module.exports = historyService;</pre></td></tr>
+&nbsp;
+module.exports = sendgridRouter;
+&nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->

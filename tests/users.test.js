@@ -47,15 +47,14 @@ test('User GET Request', done => {
 
 test('User UPDATE Request', done => {
   db.none.mockImplementation((...rest) => Promise.resolve())
-  userService.update('myuuid-123-456', 'notaemail@email.com',null,null, 'notsp')
+  userService.update('myuuid-123-456', 'notaemail@email.com',null,null)
     .then(() => {
-      expect(db.none.mock.calls[0][0]).toBe('UPDATE users SET email = ${email}, area_code = ${area_code}, phone_number = ${phone_number}, token = ${token} WHERE uuid=${uuid}')
+      expect(db.none.mock.calls[0][0]).toBe('UPDATE users SET email = ${email}, area_code = ${area_code}, phone_number = ${phone_number} WHERE uuid=${uuid}')
       expect(db.none.mock.calls[0][1]).toEqual({
         'uuid': 'myuuid-123-456',
         'email': 'notaemail@email.com',
         'area_code':null,
         'phone_number':null,
-        'token': 'notsp'
       });
       done()
     })
