@@ -3,16 +3,15 @@ const sgMail = require('@sendgrid/mail');
 const sendGridService = {};
 
 
-sendGridService.sendmail = (sender, reciever) => {
+sendGridService.sendmail = (sender, reciever, template) => {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   return new Promise((resolve, reject) => {
     if (sender && reciever) {
       resolve({
         to: reciever,
         from: sender,
-        subject: 'Sending with Twilio SendGrid is Fun',
-        text: 'and easy to do anywhere, even with Node.js',
-        html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+        subject: 'Welcome to Company Name',
+        templateId: template,
       });
     } else {
       reject({err:"Missing Sender or Reciever"});

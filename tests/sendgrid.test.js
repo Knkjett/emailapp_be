@@ -1,13 +1,12 @@
 const SendGridService = require('../services/sendgrid')
 
 test('Sendgrid send email Service', done => {
-  SendGridService.sendmail('sender@gmail.com', 'test@email.com').then(data => {
+  SendGridService.sendmail('sender@gmail.com', 'test@email.com', 'templateID').then(data => {
     expect(data).toEqual({
       to: 'test@email.com',
       from: 'sender@gmail.com',
-      subject: 'Sending with Twilio SendGrid is Fun',
-      text: 'and easy to do anywhere, even with Node.js',
-      html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+      subject: 'Welcome to Company Name',
+      templateId: 'templateID',
     });
     done()
   })

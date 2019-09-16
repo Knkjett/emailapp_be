@@ -33,13 +33,25 @@ test('User GET Request', done => {
     })
 })
 
-test('User GET Request', done => {
+test('User GET by UUID Request', done => {
   db.one.mockImplementation((...rest) => Promise.resolve())
   userService.readUUID('uuid-123-456')
     .then(() => {
       expect(db.one.mock.calls[2][0]).toBe('SELECT * from users WHERE uuid=${uuid}');
       expect(db.one.mock.calls[2][1]).toEqual({
         'uuid':'uuid-123-456'
+      });
+      done()
+    })
+})
+
+test('User GET by email Request', done => {
+  db.one.mockImplementation((...rest) => Promise.resolve())
+  userService.readEmail('test@gmail.com')
+    .then(() => {
+      expect(db.one.mock.calls[3][0]).toBe('SELECT * from users WHERE email=${email}');
+      expect(db.one.mock.calls[3][1]).toEqual({
+        'email':'test@gmail.com'
       });
       done()
     })
@@ -101,6 +113,15 @@ test('connecting to User GET UUID',done => {
   })
 })
 
+test('connecting to User GET Email',done => {
+  request(app)
+  .get('/users/email/test@gmail.com')
+  .then((res)=>{
+    expect(res.status).toBe(200);
+    done();
+  })
+})
+
 test('connecting to User PUT',done => {
   request(app)
   .put('/users/myuuid-123-456')
@@ -144,6 +165,16 @@ test('connecting to User GET BY UUID Request', done => {
   db.one.mockImplementation((...rest) => Promise.reject())
   request(app)
   .get('/users/contact/uuid-123-456')
+    .then((res) => {
+      expect(res.status).toBe(400);
+    done();
+    })
+})
+
+test('connecting to User GET BY Email Request', done => {
+  db.one.mockImplementation((...rest) => Promise.reject())
+  request(app)
+  .get('/users/email/test@email.com')
     .then((res) => {
       expect(res.status).toBe(400);
     done();

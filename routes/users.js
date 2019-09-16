@@ -46,6 +46,19 @@ userRouter.get('/contact/:uuid', (req, res) => {
     })
 });
 
+userRouter.get('/email/:email', (req, res) => {
+  const {email} = req.params;
+  UserService.readEmail(email)
+    .then(data => {
+      res.status(200);
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(400);
+      res.send({"Message":err})
+    })
+});
+
 // PUT - UPDATE
 userRouter.put('/:uuid', (req, res) => {
   const {uuid} = req.params

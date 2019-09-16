@@ -22,6 +22,13 @@ userService.readUUID = (uuid) =>{
   });
 }
 
+// READ BY Email
+userService.readEmail = (email) =>{
+  return db.one ('SELECT * from users WHERE email=${email}',{
+    email
+  });
+}
+
 //UPDATE
 userService.update = (uuid,email, area_code, phone_number) =>{
   return db.none('UPDATE users SET email = ${email}, area_code = ${area_code}, phone_number = ${phone_number} WHERE uuid=${uuid}',{

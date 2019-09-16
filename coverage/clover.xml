@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1568337660113" clover="3.2.0">
-  <project timestamp="1568337660114" name="All files">
-    <metrics statements="179" coveredstatements="179" conditionals="6" coveredconditionals="6" methods="53" coveredmethods="53" elements="238" coveredelements="238" complexity="0" loc="179" ncloc="179" packages="3" files="10" classes="10"/>
+<coverage generated="1568677295315" clover="3.2.0">
+  <project timestamp="1568677295315" name="All files">
+    <metrics statements="188" coveredstatements="188" conditionals="6" coveredconditionals="6" methods="57" coveredmethods="57" elements="251" coveredelements="251" complexity="0" loc="188" ncloc="188" packages="3" files="10" classes="10"/>
     <package name="be_email">
       <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.js" path="/home/kevin/Desktop/Pursuit/Kjett/email/be_email/app.js">
@@ -25,7 +25,7 @@
       </file>
     </package>
     <package name="be_email.routes">
-      <metrics statements="117" coveredstatements="117" conditionals="0" coveredconditionals="0" methods="39" coveredmethods="39"/>
+      <metrics statements="124" coveredstatements="124" conditionals="0" coveredconditionals="0" methods="42" coveredmethods="42"/>
       <file name="contact_list.js" path="/home/kevin/Desktop/Pursuit/Kjett/email/be_email/routes/contact_list.js">
         <metrics statements="35" coveredstatements="35" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="12"/>
         <line num="1" count="4" type="stmt"/>
@@ -111,7 +111,7 @@
         <line num="24" count="4" type="stmt"/>
       </file>
       <file name="users.js" path="/home/kevin/Desktop/Pursuit/Kjett/email/be_email/routes/users.js">
-        <metrics statements="42" coveredstatements="42" conditionals="0" coveredconditionals="0" methods="15" coveredmethods="15"/>
+        <metrics statements="49" coveredstatements="49" conditionals="0" coveredconditionals="0" methods="18" coveredmethods="18"/>
         <line num="1" count="4" type="stmt"/>
         <line num="2" count="4" type="stmt"/>
         <line num="3" count="4" type="stmt"/>
@@ -138,26 +138,33 @@
         <line num="41" count="1" type="stmt"/>
         <line num="44" count="1" type="stmt"/>
         <line num="45" count="1" type="stmt"/>
-        <line num="50" count="4" type="stmt"/>
+        <line num="49" count="4" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
         <line num="51" count="2" type="stmt"/>
-        <line num="52" count="2" type="stmt"/>
-        <line num="53" count="2" type="stmt"/>
-        <line num="55" count="1" type="stmt"/>
-        <line num="56" count="1" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
-        <line num="60" count="1" type="stmt"/>
-        <line num="65" count="4" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="63" count="4" type="stmt"/>
+        <line num="64" count="2" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
         <line num="66" count="2" type="stmt"/>
-        <line num="67" count="2" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
         <line num="69" count="1" type="stmt"/>
-        <line num="70" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
         <line num="73" count="1" type="stmt"/>
-        <line num="74" count="1" type="stmt"/>
         <line num="78" count="4" type="stmt"/>
+        <line num="79" count="2" type="stmt"/>
+        <line num="80" count="2" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+        <line num="91" count="4" type="stmt"/>
       </file>
     </package>
     <package name="be_email.services">
-      <metrics statements="46" coveredstatements="46" conditionals="6" coveredconditionals="6" methods="14" coveredmethods="14"/>
+      <metrics statements="48" coveredstatements="48" conditionals="6" coveredconditionals="6" methods="15" coveredmethods="15"/>
       <file name="contact_list.js" path="/home/kevin/Desktop/Pursuit/Kjett/email/be_email/services/contact_list.js">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="1" count="4" type="stmt"/>
@@ -200,11 +207,11 @@
         <line num="8" count="4" type="stmt"/>
         <line num="9" count="4" type="cond" truecount="4" falsecount="0"/>
         <line num="10" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="23" count="4" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
       </file>
       <file name="users.js" path="/home/kevin/Desktop/Pursuit/Kjett/email/be_email/services/users.js">
-        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
         <line num="1" count="4" type="stmt"/>
         <line num="2" count="4" type="stmt"/>
         <line num="5" count="4" type="stmt"/>
@@ -217,7 +224,9 @@
         <line num="27" count="3" type="stmt"/>
         <line num="33" count="4" type="stmt"/>
         <line num="34" count="3" type="stmt"/>
-        <line num="39" count="4" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="41" count="3" type="stmt"/>
+        <line num="46" count="4" type="stmt"/>
       </file>
     </package>
   </project>
