@@ -46,11 +46,11 @@ test('User GET by UUID Request', done => {
 })
 
 test('User GET by email Request', done => {
-  db.one.mockImplementation((...rest) => Promise.resolve())
+  db.any.mockImplementation((...rest) => Promise.resolve())
   userService.readEmail('test@gmail.com')
     .then(() => {
-      expect(db.one.mock.calls[3][0]).toBe('SELECT * from users WHERE email=${email}');
-      expect(db.one.mock.calls[3][1]).toEqual({
+      expect(db.any.mock.calls[0][0]).toBe('SELECT * from users WHERE email=${email}');
+      expect(db.any.mock.calls[0][1]).toEqual({
         'email':'test@gmail.com'
       });
       done()
@@ -172,7 +172,7 @@ test('connecting to User GET BY UUID Request', done => {
 })
 
 test('connecting to User GET BY Email Request', done => {
-  db.one.mockImplementation((...rest) => Promise.reject())
+  db.any.mockImplementation((...rest) => Promise.reject())
   request(app)
   .get('/users/email/test@email.com')
     .then((res) => {

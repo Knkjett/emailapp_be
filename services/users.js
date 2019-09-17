@@ -24,7 +24,7 @@ userService.readUUID = (uuid) =>{
 
 // READ BY Email
 userService.readEmail = (email) =>{
-  return db.one ('SELECT * from users WHERE email=${email}',{
+  return db.any ('SELECT * from users WHERE email=${email}',{
     email
   });
 }
