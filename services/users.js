@@ -30,10 +30,17 @@ userService.readEmail = (email) =>{
 }
 
 //UPDATE
-userService.update = (uuid,email, area_code, phone_number) =>{
+userService.update = (uuid,email, area_code, phone_number, token) =>{
+  if(token){
+    return db.none('UPDATE users SET email = ${email}, area_code = ${area_code}, phone_number = ${phone_number}, token= ${token} WHERE uuid=${uuid}',{
+      uuid,email, area_code, phone_number, token
+    })
+  }
+  else{
   return db.none('UPDATE users SET email = ${email}, area_code = ${area_code}, phone_number = ${phone_number} WHERE uuid=${uuid}',{
     uuid,email, area_code, phone_number
   })
+}
 }
 
 // DELETE

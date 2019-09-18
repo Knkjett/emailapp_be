@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1568685833132" clover="3.2.0">
-  <project timestamp="1568685833132" name="All files">
-    <metrics statements="188" coveredstatements="188" conditionals="6" coveredconditionals="6" methods="57" coveredmethods="57" elements="251" coveredelements="251" complexity="0" loc="188" ncloc="188" packages="3" files="10" classes="10"/>
+<coverage generated="1568775213233" clover="3.2.0">
+  <project timestamp="1568775213234" name="All files">
+    <metrics statements="190" coveredstatements="190" conditionals="8" coveredconditionals="8" methods="57" coveredmethods="57" elements="255" coveredelements="255" complexity="0" loc="190" ncloc="190" packages="3" files="10" classes="10"/>
     <package name="be_email">
       <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.js" path="/home/kevin/Desktop/Pursuit/Kjett/email/be_email/app.js">
@@ -164,7 +164,7 @@
       </file>
     </package>
     <package name="be_email.services">
-      <metrics statements="48" coveredstatements="48" conditionals="6" coveredconditionals="6" methods="15" coveredmethods="15"/>
+      <metrics statements="50" coveredstatements="50" conditionals="8" coveredconditionals="8" methods="15" coveredmethods="15"/>
       <file name="contact_list.js" path="/home/kevin/Desktop/Pursuit/Kjett/email/be_email/services/contact_list.js">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="1" count="4" type="stmt"/>
@@ -211,7 +211,7 @@
         <line num="22" count="4" type="stmt"/>
       </file>
       <file name="users.js" path="/home/kevin/Desktop/Pursuit/Kjett/email/be_email/services/users.js">
-        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+        <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
         <line num="1" count="4" type="stmt"/>
         <line num="2" count="4" type="stmt"/>
         <line num="5" count="4" type="stmt"/>
@@ -223,10 +223,12 @@
         <line num="26" count="4" type="stmt"/>
         <line num="27" count="3" type="stmt"/>
         <line num="33" count="4" type="stmt"/>
-        <line num="34" count="3" type="stmt"/>
-        <line num="40" count="4" type="stmt"/>
-        <line num="41" count="3" type="stmt"/>
-        <line num="46" count="4" type="stmt"/>
+        <line num="34" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="47" count="4" type="stmt"/>
+        <line num="48" count="3" type="stmt"/>
+        <line num="53" count="4" type="stmt"/>
       </file>
     </package>
   </project>

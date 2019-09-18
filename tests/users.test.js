@@ -57,7 +57,7 @@ test('User GET by email Request', done => {
     })
 })
 
-test('User UPDATE Request', done => {
+test('User UPDATE Request without Token', done => {
   db.none.mockImplementation((...rest) => Promise.resolve())
   userService.update('myuuid-123-456', 'notaemail@email.com',null,null)
     .then(() => {
@@ -71,12 +71,29 @@ test('User UPDATE Request', done => {
       done()
     })
 })
+
+test('User UPDATE Request with Token', done => {
+  db.none.mockImplementation((...rest) => Promise.resolve())
+  userService.update('myuuid-123-456', 'notaemail@email.com',null,null, 'newToken')
+    .then(() => {
+      expect(db.none.mock.calls[1][0]).toBe('UPDATE users SET email = ${email}, area_code = ${area_code}, phone_number = ${phone_number}, token= ${token} WHERE uuid=${uuid}')
+      expect(db.none.mock.calls[1][1]).toEqual({
+        'uuid': 'myuuid-123-456',
+        'email': 'notaemail@email.com',
+        'area_code':null,
+        'phone_number':null,
+        'token':'newToken'
+      });
+      done()
+    })
+})
+
 test('User DELETE Request', done => {
   db.none.mockImplementation((...rest) => Promise.resolve())
   userService.delete('uuid-333')
     .then(() => {
-      expect(db.none.mock.calls[1][0]).toBe('DELETE FROM users WHERE uuid=${uuid}')
-      expect(db.none.mock.calls[1][1]).toEqual({
+      expect(db.none.mock.calls[2][0]).toBe('DELETE FROM users WHERE uuid=${uuid}')
+      expect(db.none.mock.calls[2][1]).toEqual({
         'uuid': 'uuid-333'
       });
       done()
