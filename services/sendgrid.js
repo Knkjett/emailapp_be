@@ -3,7 +3,7 @@ const sgMail = require('@sendgrid/mail');
 const sendGridService = {};
 
 
-sendGridService.sendmail = (sender, reciever, template) => {
+sendGridService.sendmail = (sender, reciever, template, recipientName, senderName,  beneficiary) => {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   return new Promise((resolve, reject) => {
     if (sender && reciever) {
