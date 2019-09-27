@@ -10,8 +10,15 @@ sendgridRouter.post('/', (req, res) => {
   SendGridService.sendmail(sender,reciever,template, recipientName, senderName,  beneficiary)
   .then((data)=>{
     sgMail.send(data)
-    res.status(200)
-    res.json({msg:"Sent mail", data})
+    .then((sent)=>{
+      res.status(200)
+      res.json({msg:"Sent mail", sent})
+    })
+    .catch((err)=>{
+      console.log(err)
+      res.status(400)
+      res.json({error: err})
+    })
   })
   .catch((err)=>{
     console.log(err)
