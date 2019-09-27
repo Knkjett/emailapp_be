@@ -10,8 +10,13 @@ sendGridService.sendmail = (sender, reciever, template) => {
       resolve({
         to: reciever,
         from: sender,
-        subject: 'Welcome to Company Name',
         templateId: template,
+        dynamic_template_data:
+        {
+          "recipientName": recipientName  ,
+          "senderName": senderName  ,
+          "beneficiary":beneficiary
+        }
       });
     } else {
       reject({err:"Missing Sender or Reciever"});
