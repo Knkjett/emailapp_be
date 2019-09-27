@@ -6,7 +6,7 @@ const sgMail = require('@sendgrid/mail');
 
 
 sendgridRouter.post('/', (req, res) => {
-  const {sender, reciever, template} = req.body;
+  const {sender, reciever, template,  recipientName, senderName,  beneficiary} = req.body;
   SendGridService.sendmail(sender,reciever,template, recipientName, senderName,  beneficiary)
   .then((data)=>{
     sgMail.send(data)
