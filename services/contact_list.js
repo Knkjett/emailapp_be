@@ -2,9 +2,9 @@ const {db} = require('./dbConnect');
 const contact_listService = {};
 
 // CREATE
-contact_listService.create = (uuid, host, contact, category) =>{
-  return db.one('INSERT INTO contact_list (uuid, host, contact, category) VALUES (${uuid}, ${host}, ${contact}, ${category}) RETURNING host, contact, category;',{
-    uuid, host, contact, category
+contact_listService.create = (uuid, host, contact,first_name, last_name, category) =>{
+  return db.one('INSERT INTO contact_list (uuid, host, contact,first_name, last_name, category) VALUES (${uuid}, ${host}, ${contact}, ${first_name}, ${last_name}, ${category}) RETURNING host, contact, category;',{
+    uuid, host, contact, first_name, last_name, category
   });
 }
 
@@ -16,9 +16,9 @@ contact_listService.getContacts = (uuid) =>{
 }
 
 // UPDATE CATEGORY
-contact_listService.update = (uuid, category) =>{
-  return db.none('UPDATE contact_list SET category = ${category} WHERE uuid=${uuid}',{
-    uuid, category
+contact_listService.update = (uuid,first_name, last_name, category) =>{
+  return db.none('UPDATE contact_list SET first_name= ${first_name}, last_name=${last_name}, category = ${category} WHERE uuid=${uuid}',{
+    uuid,first_name, last_name, category
   });
 }
 

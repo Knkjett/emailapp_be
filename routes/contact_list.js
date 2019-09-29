@@ -5,9 +5,9 @@ const uuidv1 = require('uuid/v1');
 
 // POST - CREATE 
 contact_listRouter.post('/', (req, res) => {
-  const {host, contact, category} = req.body;
+  const {host, contact,first_name, last_name, category} = req.body;
   let uuid = uuidv1();
-  Contact_ListService.create(uuid, host, contact, category)
+  Contact_ListService.create(uuid, host, contact, first_name, last_name, category)
     .then(data => {
       res.status(201);
       res.send({
@@ -38,8 +38,8 @@ contact_listRouter.get('/:uuid', (req, res) => {
 // PUT - UPDATE CATEGORY
 contact_listRouter.put('/:uuid', (req, res) => {
   const {uuid} = req.params;
-  const {category} = req.body;
-  Contact_ListService.update(uuid, category)
+  const {first_name, last_name, category} = req.body;
+  Contact_ListService.update(uuid,first_name, last_name, category)
     .then(() => {
       res.status(201);
       res.send({
